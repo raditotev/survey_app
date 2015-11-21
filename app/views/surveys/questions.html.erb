@@ -1,0 +1,12 @@
+<h1><%= @survey.name %> Questions</h1>
+
+<%= form_for(@survey) do |f| %>
+  <% 10.times do %>
+    <%= f.fields_for :questions, @survey.questions.build do |q| -%>
+    <p>
+      <%= q.text_field :content %>
+    </p>
+    <% end -%>
+  <% end -%>
+  <%= f.submit %>
+<% end -%>
